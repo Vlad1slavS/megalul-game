@@ -9,6 +9,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap">
 <style>
@@ -136,6 +137,12 @@ button { font-family: inherit; }
 @media (orientation: portrait) and (pointer: coarse) { #rotate { display: flex; } }
 #rotate .window-hint { display: none; }
 @media (max-width: 600px) and (pointer: fine) { #rotate { display: flex; } #rotate .phone, #rotate .phone-hint { display: none; } #rotate .window-hint { display: block; } }
+#installDialog { border:0; border-radius:20px; padding:24px; width:min(420px, calc(100vw - 64px)); max-height:calc(100dvh - 64px); overflow:auto; color:var(--ink); box-shadow:0 12px 60px #0005; }
+#installDialog::backdrop { background:#101c32aa; }
+#installDialog h2 { margin:0 0 12px; font-size:24px; }
+#installDialog p { line-height:1.5; }
+#installDialog button { display:block; width:100%; padding:12px; margin-top:12px; border:0; border-radius:10px; font-size:16px; cursor:pointer; touch-action:manipulation; }
+#installAction { background:var(--blue); color:white; }
 </style>
 </head>
 <body>
@@ -184,9 +191,16 @@ button { font-family: inherit; }
   <a id="feedbackLink" class="hidden" target="_blank" rel="noopener noreferrer" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:4;background:#fff;color:#234979;padding:8px 12px;border-radius:8px;font-weight:bold;text-decoration:none;font-size:13px">Оставить отзыв ↗</a>
 </div>
 <div id="rotate"><div class="phone"></div><span class="phone-hint">Поверните телефон</span><span class="window-hint">Расширьте окно игры<br><small>Нужна ширина больше 600 пикселей</small></span></div>
+<dialog id="installDialog" aria-labelledby="installTitle" aria-describedby="installMessage">
+<h2 id="installTitle">Игра на главном экране</h2>
+<p id="installMessage"></p>
+<button id="installAction">Как добавить</button>
+<button id="installDismiss">Продолжить в браузере</button>
+</dialog>
+<script src="js/install.0fafced6a5a65b65.js"></script>
 <script src="vendor/three.r128.min.9274bbcec8d96168.js"></script>
 <script src="js/core.7709947ef26a8e4f.js"></script>
-<script src="js/config.7ea4fbc67bdd25f3.js"></script>
+<script src="js/config.e2c875c899feae03.js"></script>
 <script src="js/feedback.1e655d39f3560aae.js"></script>
 <script src="js/data.c7dcc031b0f257a7.js"></script>
 <script src="js/career.94778e51790edb2a.js"></script>
@@ -196,7 +210,7 @@ button { font-family: inherit; }
 <script src="js/physics.ad91f08b4cc62600.js"></script>
 <script src="js/race.f301845e037960e9.js"></script>
 <script src="js/studio.98a43b17cba11202.js"></script>
-<script src="js/lobby.1a653a203a19198c.js"></script>
+<script src="js/lobby.1c7b91b921edfe33.js"></script>
 <script src="js/main.5a0f9d7c4e44fb00.js"></script>
 </body>
 </html>
